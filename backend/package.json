@@ -1,0 +1,20 @@
+{
+  "name": "trad-dz-backend",
+  "version": "1.0.0",
+  "main": "src/app.ts",
+  "scripts": {
+    "dev": "ts-node-dev src/app.ts"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "stripe": "^12.0.0",
+    "socket.io": "^4.8.0",
+    "@prisma/client": "^4.0.0"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.0",
+    "prisma": "^4.0.0"
+  }
+}
