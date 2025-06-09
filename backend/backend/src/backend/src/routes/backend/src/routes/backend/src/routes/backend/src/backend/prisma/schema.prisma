@@ -1,0 +1,27 @@
+datasource db { provider = "mongodb"; url = env("DATABASE_URL") }
+generator client { provider = "prisma-client-js" }
+
+model User {
+  id       String @id @default(auto()) @map("_id")
+  email    String @unique
+  password String
+  role     Role
+  profile  TranslatorProfile?
+}
+model TranslatorProfile {
+  id            String @id @default(auto()) @map("_id")
+  userId        String
+  specialties   String[]
+  languages     String[]
+  rate          Float
+  user          User @relation(fields: [userId], references: [id])
+}
+model Booking {
+  id              String @id @default(auto()) @map("_id")
+  userId          String
+  translatorId    String
+  start           DateTime
+  duration        Int
+  paymentIntentId String
+}
+enum Role { USER TRANSLATOR ADMIN }
